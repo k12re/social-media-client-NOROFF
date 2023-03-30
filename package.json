@@ -9,7 +9,9 @@
     "test": "node src/js/**/*.test.js",
     "format": "prettier -w src/js/**/*.js",
     "lint": "eslint src/js/**/*.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "jest-test": "npm run test-unit",
+    "test-unit": "jest"
   },
   "keywords": [],
   "author": "Noroff",
