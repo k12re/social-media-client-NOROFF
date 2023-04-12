@@ -1,17 +1,17 @@
 # Workflow CA
 
 ## Unit- and End-to-End-Testing
----
+
 [![Deploy static content to Pages](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/pages.yml/badge.svg)](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/pages.yml)
 
 ## Description
----
+
 Configure project with esLint, Prettier and commit hooks. 
 Configure Jest and Cypress.
 Create some tests and automate using Github Actions.
 
 ## Built with
----
+
 - HTML
 - Sass
 - Bootstrap
