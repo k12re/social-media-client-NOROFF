@@ -1,2 +1,5 @@
 /node_modules
 /dist
+/1-getting-started
+/2-advanced-examples
+cypress.env.json

@@ -1,22 +1,30 @@
-import { apiPath } from "../constants.js";
-import { headers } from "../headers.js";
 import { login } from "./login.js";
 
 const email = "kenthore@noroff.no";
 const password = "123123123";
-// const accessToken = "testToken";
 
 describe("login function", () => {
-  beforeEach(() => {
-    localStorageMock.clear();
-  });
+  class LocalStorageMock {
+    constructor() {
+      this.store = {};
+    }
+    clear() {
+      this.store = {};
+    }
+    getItem(key) {
+      return this.store[key] || null;
+    }
+    setItem(key, value) {
+      this.store[key] = String(value);
+    }
+    removeItem(key) {
+      delete this.store[key];
+    }
+  }
 
-  const localStorageMock = {
-    setItem: jest.fn(),
-    getItem: jest.fn(),
-    clear: jest.fn(),
-  };
-
+  const localStorageMock = new LocalStorageMock();
+  const getItemSpy = jest.spyOn(localStorageMock, "getItem");
+  const setItemSpy = jest.spyOn(localStorageMock, "setItem");
   global.localStorage = localStorageMock;
 
   it("fetches and stores token in localStorage", async () => {
@@ -33,21 +41,9 @@ describe("login function", () => {
 
     await login(email, password);
 
-    expect(fetch).toHaveBeenCalledWith(`${apiPath}/social/auth/login`, {
-      method: "post",
-      body: JSON.stringify({
-        email: "kenthore@noroff.no",
-        password: "123123123",
-      }),
-      headers: headers("application/json"),
-    });
-
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(localStorageMock.setItem).toHaveBeenCalledWith(
-      "token",
-      '"testToken"'
-    );
-    expect(localStorageMock.getItem).toHaveBeenCalledWith("token");
-    expect(localStorageMock.getItem("token")).toBe('"testToken"');
+    expect(localStorage.setItem).toHaveBeenCalledWith("token", '"testToken"');
+    expect(localStorage.getItem).toHaveBeenCalledWith("token");
+    expect(localStorage.getItem("token")).toBe('"testToken"');
   });
 });

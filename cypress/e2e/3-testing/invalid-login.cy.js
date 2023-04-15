@@ -7,10 +7,10 @@ describe("Noroff Social Media", () => {
       .contains("Login")
       .click();
     cy.wait(1000);
-    cy.get("input#loginEmail[name='email']").type("kenthore@noroff.no", {
+    cy.get("input#loginEmail[name='email']").type(Cypress.env("email_env"), {
       delay: 100,
     });
-    cy.get("input#loginPassword").type("123123123123", { delay: 100 });
+    cy.get("input#loginPassword").type("wrongpassword", { delay: 100 });
     cy.get("button[type=submit]").contains("Login").click();
     cy.on("window:alert", (text) => {
       expect(text).to.contain(

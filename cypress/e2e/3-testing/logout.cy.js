@@ -1,6 +1,3 @@
-const email = "kenthore@noroff.no";
-const password = "123123123";
-
 describe("Noroff Social Media user", () => {
   beforeEach(() => {
     cy.visit("https://k12re.github.io/social-media-client-NOROFF/");
@@ -10,10 +7,12 @@ describe("Noroff Social Media user", () => {
       .contains("Login")
       .click();
     cy.wait(1000);
-    cy.get("input#loginEmail[name='email']").type(email, {
+    cy.get("input#loginEmail[name='email']").type(Cypress.env("email_env"), {
       delay: 100,
     });
-    cy.get("input#loginPassword").type(password, { delay: 100 });
+    cy.get("input#loginPassword").type(Cypress.env("password_env"), {
+      delay: 100,
+    });
     cy.get("button[type=submit]").contains("Login").click();
   });
   it("User can then logout of platform", () => {
