@@ -4,7 +4,7 @@
 
 [![Deploy static content to Pages](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/pages.yml/badge.svg)](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/pages.yml)
 [![Automated E2E Testing](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/e2e-test.yml)
-[![Automated Unit Testing](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/unit-testing.yml/badge.svg)](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/unit-testing.yml)
+[![Automated Unit Testing](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/unit-test.yml/badge.svg)](https://github.com/k12re/social-media-client-NOROFF/actions/workflows/unit-test.yml)
 
 
 ## Description
